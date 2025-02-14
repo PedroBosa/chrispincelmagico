@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/img/site-icon.PNG">
+    <title>Chris Pincel Mágico</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <header class="nav-container">
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="logo">
+            <img src="src/img/chris-logo.png" alt="CHRIS Logo" class="nav-logo-img">
+        </div>
+        <nav class="navbar">
+            <!-- Menu Principal -->
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <!-- Submenu de Serviços (visível apenas no desktop) -->
+                    <ul class="dropdown-menu">
+                        <li><a href="#sobrancelha" class="dropdown-item">Sobrancelha</a></li>
+                        <li><a href="#cilios" class="dropdown-item">Cílios</a></li>
+                        <li><a href="#depilacao" class="dropdown-item">Depilação</a></li>
+                        <li><a href="#boca" class="dropdown-item">Boca</a></li>
+                        <li><a href="#pele" class="dropdown-item">Pele</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+                <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn btn-primary">
+            <i class="fas fa-calendar-alt"></i> Agendar Horário
+        </a>
+    </header>
+
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h1 style="font-family: bebas;">Design Personalizado a partir de R$ 30,00</h1>
+            <p>Transformamos sua beleza com designs únicos e personalizados.</p>
+            <a href="#services" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> Saiba Mais</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 style="font-family: heavitas;">Meus Serviços</h2>
+        <div class="services-container">
+            <div id="sobrancelha" class="service-category">
+                <h3 style="font-family: heavitas; text-align: center; margin-top: 20px; color: #008080;">Sobrancelha</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="src/img/design-personalizado.jpeg" alt="Design Personalizado">
+                            <h3 style="font-family: heavitas;">Design Personalizado</h3>
+                            <p style="font-family: hand;">R$ 30,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="src/img/design-com-henna.jpeg" alt="Design com Henna">
+                            <h3 style="font-family: heavitas;">Design com Henna</h3>
+                            <p style="font-family: hand;">R$ 40,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="src/img/brow-lamination.jpeg" alt="Brow Lamination">
+                            <h3 style="font-family: heavitas;">Brow Lamination</h3>
+                            <p style="font-family: hand;">R$ 70,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cilios" class="service-category">
+                <h3 style="font-family: heavitas; text-align: center; margin-top: 20px; color: #008080;">Cílios</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="src/img/lash-lifting.jpeg" alt="Lash Lifting">
+                            <h3 style="font-family: heavitas;">Lash Lifting</h3>
+                            <p style="font-family: hand;">R$ 70,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="src/img/extensao-de-cilios.jpeg" alt="Extensão de Cílios">
+                            <h3 style="font-family: heavitas;">Extensão de Cílios</h3>
+                            <p style="font-family: hand;">R$ 120,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="depilacao" class="service-category">
+                <h3 style="font-family: heavitas; text-align: center; margin-top: 20px; color: #008080;">Depilação</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="src/img/depilacao-buco.jpeg" alt="Depilação do Buço">
+                            <h3 style="font-family: heavitas;">Depilação do Buço</h3>
+                            <p style="font-family: hand;">R$ 10,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="src/img/depilacao-axila.jpeg" alt="Depilação da Axila">
+                            <h3 style="font-family: heavitas;">Depilação da Axila</h3>
+                            <p style="font-family: hand;">R$ 20,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="boca" class="service-category">
+                <h3 style="font-family: heavitas; text-align: center; margin-top: 20px; color: #008080;">Lábios</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="src/img/micro-labial.jpeg" alt="Micro Labial">
+                            <h3 style="font-family: heavitas;">Micro Labial</h3>
+                            <p style="font-family: hand;">R$ 200,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pele" class="service-category">
+                <h3 style="font-family: heavitas; text-align: center; margin-top: 20px; color: #008080;">Pele</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="src/img/limpeza-de-pele.jpeg" alt="Limpeza de Pele Vegana">
+                            <h3 style="font-family: heavitas;">Limpeza de Pele Vegana</h3>
+                            <p style="font-family: hand;">R$ 70,00</p>
+                            <a href="https://www.contate.me/chrispincelmagico" target="_blank" class="btn-agendar"><i class="fas fa-calendar-alt"></i> Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 style="font-family: heavitas;">Sobre mim</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Chris, 45 anos, é uma empreendedora apaixonada pelo universo da beleza e do design. Há oito anos atua no setor, especializando-se em diversas áreas como design de sobrancelhas, micropigmentação e lash design. Seu compromisso com a excelência e inovação a levou a consolidar dois estúdios, um localizado em Floriano, Piauí, e outro em Barão, Maranhão, onde atende clientes em busca de realce estético e bem-estar.
+                </p>
+                <p>
+                    Além de seu trabalho como designer e micropigmentadora, Christianne também empreende no ramo gastronômico, comercializando churros e proporcionando experiências diferenciadas para seus clientes. Sua trajetória é marcada pelo talento, dedicação e busca constante por aprimoramento, tornando-se uma referência em sua área.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="src/img/christianne.jpg" alt="Sobre Nós">
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 style="font-family: heavitas;">Galeria</h2>
+        <div class="gallery-grid">
+            <img src="src/img/galeria1.jpg" alt="Galeria 1" class="gallery-image">
+            <img src="src/img/galeria2.jpeg" alt="Galeria 2" class="gallery-image">
+            <img src="src/img/galeria3.jpeg" alt="Galeria 3" class="gallery-image">
+            <img src="src/img/galeria4.jpeg" alt="Galeria 4" class="gallery-image">
+            <img src="src/img/galeria5.jpeg" alt="Galeria 5" class="gallery-image">
+            <img src="src/img/galeria6.jpeg" alt="Galeria 6" class="gallery-image">
+            <video class="gallery-video" controls poster="src/img/thumbnail-video1.jpeg">
+                <source src="src/videos/video1.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <video class="gallery-video" controls poster="src/img/thumbnail-video2.jpeg">
+                <source src="src/videos/video2.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+        <div class="fullscreen-overlay">
+            <span class="close-btn">&times;</span>
+            <img class="fullscreen-image" src="" alt="Imagem em tela cheia">
+            <video class="fullscreen-video" controls>
+                <source src="" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 style="font-family: heavitas;">Contato</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p>Endereço: Avenida Bucar Neto, Bairro Cancela, 1984 - Floriano - Piauí</p>
+                <p>Telefone: (89) 99422-1565</p>
+                <p>E-mail: christiannebosa@hotmail.com</p>
+            </div>
+        </div>
+        <div class="map-container">
+            <div class="map">
+                <h3 style="margin-bottom: 15px; font-size: 25px; font-family: heavitas;">Studio em Floriano</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d824.1120688071155!2d-43.00588073049223!3d-6.778563667845623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNDYnNDIuOCJTIDQzwrAwMCcxOC45Ilc!5e1!3m2!1spt-BR!2sbr!4v1739486217036!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+            <div class="map">
+                <h3 style="margin-bottom: 15px; font-size: 25px; font-family: heavitas;">Studio no Barão</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d824.1631011713695!2d-43.03700573049225!3d-6.748648667764998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNDQnNTUuMSJTIDQzwrAwMicxMC45Ilc!5e1!3m2!1spt-BR!2sbr!4v1739486153913!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="filter: drop-shadow(0px 0px 1px #ffffff);">
+            <img src="src/img/chris-logo-2.png" alt="Logo CHRIS" class="logo-img">
+        </div>
+        <ul class="footer-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <div class="social-media">
+            <a href="https://www.instagram.com/chrispincelmagico/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+5589994221565" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>© 2025 Chris Pincel Mágico. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="src/js/script.js"></script>
+    </body>
+</html>
