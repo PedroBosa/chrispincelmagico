@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 import { bookingLink, publicAsset } from "@/data/site";
 
 const heroStats = [
-  { value: "8+", label: "anos de experiência" },
+  { value: "10+", label: "anos de experiência" },
   { value: "2", label: "unidades de atendimento" },
   { value: "100%", label: "hora marcada" },
 ];

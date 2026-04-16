@@ -78,7 +78,7 @@ export const serviceOptions = serviceCategories.flatMap((category) =>
 );
 
 export const aboutStats = [
-  { value: "8 anos", label: "de atuação no universo da beleza" },
+  { value: "10 anos", label: "de atuação no universo da beleza" },
   { value: "2 studios", label: "em Floriano-PI e Barão-MA" },
   { value: "Atendimento autoral", label: "com escuta, técnica e delicadeza" },
 ];

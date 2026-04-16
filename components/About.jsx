@@ -41,7 +41,7 @@ export default function About() {
             <SectionHeading
               eyebrow="Sobre Christianne"
               title="Uma trajetória construída com presença, delicadeza e domínio técnico."
-              description="Chris é empreendedora e especialista em beleza há oito anos, com atuação consolidada em design de sobrancelhas, micropigmentação e lash design."
+              description="Chris é empreendedora e especialista em beleza há dez anos, com atuação consolidada em design de sobrancelhas, micropigmentação e lash design."
             />
 
             <div className="mt-8 space-y-5 text-base leading-8 text-[#6d615d] sm:text-lg">
