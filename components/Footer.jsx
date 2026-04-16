@@ -2,10 +2,12 @@ import Image from "next/image";
 import {
   AtSign,
   BadgeCheck,
+  Banknote,
   Camera,
   CreditCard,
   MapPinned,
   MessageCircle,
+  ScanQrCode,
 } from "lucide-react";
 import Container from "@/components/Container";
 import {
@@ -34,6 +36,24 @@ const paymentMeta = {
   Débito: {
     title: "Cartão de débito",
     description: "Uma opção prática para finalizar o atendimento no studio.",
+  },
+};
+
+const paymentVisuals = {
+  Pix: {
+    Icon: ScanQrCode,
+    iconSurface: "bg-[#19e4c4]/18 text-[#8effef]",
+    badge: "instantaneo",
+  },
+  Crédito: {
+    Icon: CreditCard,
+    iconSurface: "bg-[#86d9ff]/18 text-[#c9f0ff]",
+    badge: "parcelamento",
+  },
+  Débito: {
+    Icon: Banknote,
+    iconSurface: "bg-[#b7f07b]/20 text-[#dffcc4]",
+    badge: "a vista",
   },
 };
 
@@ -93,28 +113,28 @@ export default function Footer() {
                     title: method.label,
                     description: "Disponível no atendimento.",
                   };
+                  const visual = paymentVisuals[method.label] ?? paymentVisuals.Pix;
+                  const PaymentIcon = visual.Icon;
 
                   return (
                     <div
                       key={method.label}
-                      className="rounded-[1.35rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-4 py-4"
+                      className="group rounded-[1.35rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.05))] px-4 py-4"
                     >
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-12 min-w-0 items-center rounded-[1rem] bg-white/8 px-3">
-                          <div className="relative h-7 w-20">
-                            <Image
-                              src={method.src}
-                              alt={method.label}
-                              fill
-                              loading="eager"
-                              sizes="80px"
-                              className="object-contain object-left"
-                            />
-                          </div>
+                      <div className="flex items-start gap-4">
+                        <div
+                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.95rem] border border-white/12 ${visual.iconSurface}`}
+                        >
+                          <PaymentIcon size={20} />
                         </div>
 
                         <div className="min-w-0">
-                          <p className="text-sm font-semibold text-white/92">{meta.title}</p>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <p className="text-sm font-semibold text-white/92">{meta.title}</p>
+                            <span className="rounded-full border border-white/12 bg-white/8 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white/66">
+                              {visual.badge}
+                            </span>
+                          </div>
                           <p className="mt-1 text-sm leading-6 text-white/64">
                             {meta.description}
                           </p>
