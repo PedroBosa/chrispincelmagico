@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   ArrowUpRight,
+  Camera,
   Mail,
   MapPinned,
   MessageCircle,
@@ -34,7 +35,7 @@ const initialForm = {
 };
 
 const fieldClassName =
-  "w-full rounded-[1.2rem] border border-white/60 bg-white/72 px-4 py-3.5 text-sm text-[#2d2625] outline-none placeholder:text-[#8e817d] focus:border-[#0c6e70]/25 focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/12";
+  "w-full rounded-[1.2rem] border border-[#eadfd8] bg-white px-4 py-3.5 text-[0.95rem] text-[#2d2625] outline-none placeholder:text-[#938783] focus:border-[#0c6e70]/35 focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/15";
 
 export default function Contact() {
   const [formData, setFormData] = useState(initialForm);
@@ -115,35 +116,46 @@ export default function Contact() {
                 href={instagramLink}
                 target="_blank"
                 rel="noreferrer"
-                className="glass-panel luxury-outline w-full rounded-[1.7rem] px-4 py-4 text-[#4f4643] hover:-translate-y-1 sm:px-5"
+                className="glass-panel luxury-outline flex w-full items-center gap-4 rounded-[1.7rem] px-4 py-4 text-[#4f4643] hover:-translate-y-1 sm:px-5"
               >
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0c6e70]">
-                  Instagram
-                </p>
-                <p className="mt-1 break-words text-base leading-7">@chrispincelmagico</p>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#ffb6c1]/18 text-[#0c6e70]">
+                  <Camera size={20} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0c6e70]">
+                    Instagram
+                  </p>
+                  <p className="mt-1 break-words text-base leading-7">@chrispincelmagico</p>
+                </div>
+                <ArrowUpRight className="ml-auto shrink-0 text-[#0c6e70]" size={18} />
               </a>
             </div>
 
             <form
               onSubmit={handleSubmit}
-              className="glass-panel luxury-outline w-full rounded-[2rem] p-5 sm:p-7"
+              className="glass-panel luxury-outline w-full rounded-[2rem] border border-white/65 bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(255,247,244,0.78))] p-5 shadow-[0_18px_35px_rgba(44,28,28,0.08)] sm:p-7"
             >
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0c6e70]/10 text-[#0c6e70]">
-                  <Send size={20} />
+              <div className="mb-6 rounded-[1.4rem] border border-white/65 bg-white/70 px-4 py-4 sm:px-5">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0c6e70]/10 text-[#0c6e70]">
+                    <Send size={20} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0c6e70]">
+                      Formulário premium
+                    </p>
+                    <p className="text-sm leading-6 text-[#6d615d]">
+                      Preencha os dados e finalize o contato pelo WhatsApp.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0c6e70]">
-                    Formulário premium
-                  </p>
-                  <p className="text-sm text-[#6d615d]">
-                    Preencha os dados e finalize o contato pelo WhatsApp.
-                  </p>
-                </div>
+                <p className="mt-3 text-xs leading-6 text-[#7a6f6b]">
+                  Leva menos de 1 minuto e já abre a conversa com os dados prontos.
+                </p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-medium text-[#4f4643]">
+                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
                   Nome
                   <input
                     className={fieldClassName}
@@ -152,11 +164,12 @@ export default function Contact() {
                     placeholder="Seu nome"
                     value={formData.name}
                     onChange={handleChange}
+                    autoComplete="name"
                     required
                   />
                 </label>
 
-                <label className="grid gap-2 text-sm font-medium text-[#4f4643]">
+                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
                   Telefone
                   <input
                     className={fieldClassName}
@@ -165,10 +178,12 @@ export default function Contact() {
                     placeholder="(00) 00000-0000"
                     value={formData.phone}
                     onChange={handleChange}
+                    inputMode="numeric"
+                    autoComplete="tel"
                   />
                 </label>
 
-                <label className="grid gap-2 text-sm font-medium text-[#4f4643]">
+                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
                   Unidade
                   <select
                     className={fieldClassName}
@@ -184,7 +199,7 @@ export default function Contact() {
                   </select>
                 </label>
 
-                <label className="grid gap-2 text-sm font-medium text-[#4f4643]">
+                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
                   Serviço
                   <select
                     className={fieldClassName}
@@ -201,10 +216,10 @@ export default function Contact() {
                 </label>
               </div>
 
-              <label className="mt-4 grid gap-2 text-sm font-medium text-[#4f4643]">
+              <label className="mt-4 grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
                 Mensagem
                 <textarea
-                  className={`${fieldClassName} min-h-[150px] resize-none`}
+                  className={`${fieldClassName} min-h-[140px] resize-none leading-7`}
                   name="message"
                   placeholder="Conte qual atendimento você deseja."
                   value={formData.message}
@@ -213,11 +228,19 @@ export default function Contact() {
               </label>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <button type="submit" className="btn-primary">
+                <button type="submit" className="btn-primary w-full justify-center sm:w-auto">
                   Enviar para o WhatsApp
                   <ArrowUpRight size={16} />
                 </button>
-                {feedback ? <p className="text-sm text-[#5b524e]">{feedback}</p> : null}
+                {feedback ? (
+                  <p className="rounded-[1rem] border border-[#0c6e70]/15 bg-[#0c6e70]/8 px-3 py-2 text-sm text-[#5b524e]">
+                    {feedback}
+                  </p>
+                ) : (
+                  <p className="text-xs leading-6 text-[#7a6f6b]">
+                    Você será redirecionada para concluir no WhatsApp.
+                  </p>
+                )}
               </div>
             </form>
           </div>
