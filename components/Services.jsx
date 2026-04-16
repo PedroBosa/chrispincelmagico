@@ -22,7 +22,7 @@ export default function Services() {
             <SectionHeading
               eyebrow="Serviços"
               title="Protocolos que unem técnica, sensibilidade e acabamento impecável."
-              description="Reorganizei a tabela para a leitura ficar mais limpa: categorias com melhor proporção, preços destacados com clareza e menos sensação de vazio visual."
+              description="Categorias equilibradas, preços em destaque e leitura fluida para você comparar cada procedimento com facilidade."
             />
           </div>
 

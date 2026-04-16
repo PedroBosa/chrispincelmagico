@@ -16,7 +16,7 @@ export default function Hero() {
       className="relative overflow-hidden bg-[linear-gradient(180deg,#fff8f4_0%,#fffaf6_58%,#fff7f2_100%)] pt-24 sm:pt-28 lg:pt-32"
     >
       <div className="pointer-events-none absolute left-[-7rem] top-0 h-[22rem] w-[22rem] rounded-full bg-[#ffb6c1]/24 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-8rem] top-[8rem] h-[24rem] w-[24rem] rounded-full bg-[#0c6e70]/12 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-9rem] top-[6rem] hidden h-[26rem] w-[26rem] rounded-full bg-[#0c6e70]/12 blur-3xl lg:block" />
 
       <div className="absolute inset-x-0 top-0 h-[47vh] overflow-hidden lg:hidden">
         <Image
@@ -27,7 +27,8 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover object-[32%_18%]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,18,0.16)_0%,rgba(24,18,18,0.06)_38%,rgba(255,248,244,0.94)_84%,#fff8f4_100%)]" />
+        <div className="pointer-events-none absolute right-[-4rem] top-[3rem] h-44 w-44 rounded-full bg-[#0c6e70]/14 blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,18,0.16)_0%,rgba(24,18,18,0.08)_36%,rgba(255,248,244,0.74)_72%,rgba(255,248,244,0.96)_90%,#fff8f4_100%)]" />
       </div>
 
       <div className="absolute inset-y-0 right-0 hidden w-[56vw] overflow-hidden lg:block">
