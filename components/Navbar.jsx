@@ -46,25 +46,61 @@ export default function Navbar() {
       .map((item) => document.getElementById(item.id))
       .filter(Boolean);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!sections.length) {
+      return undefined;
+    }
 
-        if (visibleEntry?.target?.id) {
-          setActiveSection(visibleEntry.target.id);
+    const getCurrentSectionId = () => {
+      const headerHeight = window.innerWidth >= 1024 ? 124 : 108;
+      const targetLine = window.scrollY + headerHeight + window.innerHeight * 0.22;
+      let currentSectionId = sections[0].id;
+
+      for (const section of sections) {
+        if (targetLine >= section.offsetTop) {
+          currentSectionId = section.id;
+        } else {
+          break;
         }
-      },
-      {
-        rootMargin: "-40% 0px -45% 0px",
-        threshold: [0.15, 0.4, 0.65],
-      },
-    );
+      }
 
-    sections.forEach((section) => observer.observe(section));
+      const isAtPageBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
 
-    return () => observer.disconnect();
+      if (isAtPageBottom) {
+        currentSectionId = sections[sections.length - 1].id;
+      }
+
+      return currentSectionId;
+    };
+
+    let rafId = 0;
+
+    const updateActiveSection = () => {
+      if (rafId) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(() => {
+        const nextSection = getCurrentSectionId();
+        setActiveSection((previousSection) =>
+          previousSection === nextSection ? previousSection : nextSection,
+        );
+        rafId = 0;
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   const headerClasses = [
@@ -103,7 +139,10 @@ export default function Navbar() {
                 <a
                   href="#home"
                   className="relative flex min-w-0 shrink items-center gap-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#0c6e70]/35"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setActiveSection("home");
+                    setIsMenuOpen(false);
+                  }}
                 >
                   <div className="relative h-10 w-[108px] sm:h-14 sm:w-[152px]">
                     <Image
@@ -128,6 +167,7 @@ export default function Navbar() {
                       <a
                         key={item.href}
                         href={item.href}
+                        onClick={() => setActiveSection(item.id)}
                         aria-current={isActive ? "page" : undefined}
                         className={[
                           "rounded-full px-3 py-2 text-[0.95rem] font-medium xl:px-4",
