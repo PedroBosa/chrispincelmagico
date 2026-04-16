@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme inline {
@@ -6,6 +7,8 @@
 }
 
 :root {
+  --font-manrope: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --background: #fffaf5;
   --cream: #f5f5dc;
   --cream-deep: #ebe3d1;
