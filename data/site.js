@@ -4,7 +4,8 @@ export const instagramLink = "https://www.instagram.com/chrispincelmagico/";
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const isGithubActions = process.env.GITHUB_ACTIONS === "true";
 const isUserOrOrgPage = repositoryName === "" || repositoryName.endsWith(".github.io");
-const assetBasePath = isGithubActions && !isUserOrOrgPage ? `/${repositoryName}` : "";
+const isCustomDomain = process.env.CUSTOM_DOMAIN === "1" || typeof window !== "undefined" && !window.location.pathname.startsWith(`/${repositoryName}`);
+const assetBasePath = isCustomDomain ? "" : (isGithubActions && !isUserOrOrgPage ? `/${repositoryName}` : "");
 
 export const publicAsset = (path) => `${assetBasePath}${path}`;
 
