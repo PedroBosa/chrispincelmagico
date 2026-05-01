@@ -136,7 +136,7 @@ export default function Navbar() {
         <div className="flex items-center justify-center gap-2">
           <Sparkles size={16} className="shrink-0 text-[#ffb6c1]" />
           <span>
-            Especial de Maio: Sobrancelha de <span className="line-through opacity-75">R$300</span> por <strong className="text-[#ffb6c1]">R$200</strong>!
+            Especial de Maio: Micropigmentação de <span className="line-through opacity-75">R$300</span> por <strong className="text-[#ffb6c1]">R$200</strong>!
           </span>
           <Sparkles size={16} className="shrink-0 text-[#ffb6c1] hidden sm:block" />
         </div>
