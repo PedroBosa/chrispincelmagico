@@ -1,4 +1,7 @@
-import { ArrowUpRight, BadgeCheck, Gem, Sparkles } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ArrowUpRight, BadgeCheck, Gem, Sparkles, Volume2, VolumeX } from "lucide-react";
 import Container from "@/components/Container";
 import { bookingLink, heroHighlights, publicAsset } from "@/data/site";
 
@@ -9,6 +12,8 @@ const heroStats = [
 ];
 
 export default function Hero() {
+  const [isMuted, setIsMuted] = useState(true);
+
   return (
     <section
       id="home"
@@ -24,10 +29,17 @@ export default function Hero() {
           src={publicAsset("/src/videos/hero-video.mp4")}
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
           className="h-full w-full object-cover object-[43%_18%]"
         />
+        <button
+          onClick={() => setIsMuted(!isMuted)}
+          className="absolute bottom-[30vh] right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+          aria-label={isMuted ? "Ativar som" : "Desativar som"}
+        >
+          {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+        </button>
         <div className="pointer-events-none absolute right-[-4rem] top-[3rem] h-44 w-44 rounded-full bg-[#0c6e70]/20 blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(28,22,22,0.44)_0%,rgba(28,22,22,0.18)_26%,rgba(255,248,244,0.76)_56%,rgba(255,248,244,0.95)_79%,#fff8f4_100%)]" />
       </div>
@@ -38,11 +50,18 @@ export default function Hero() {
             src={publicAsset("/src/videos/hero-video.mp4")}
             autoPlay
             loop
-            muted
+            muted={isMuted}
             playsInline
             className="h-full w-full object-cover object-[37%_18%]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,248,244,0.96)_0%,rgba(255,248,244,0.56)_14%,rgba(255,248,244,0.12)_33%,rgba(24,18,18,0.04)_100%)]" />
+          <button
+            onClick={() => setIsMuted(!isMuted)}
+            className="absolute bottom-8 right-8 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/20 text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md transition-all hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+            aria-label={isMuted ? "Ativar som" : "Desativar som"}
+          >
+            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+          </button>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,248,244,0.96)_0%,rgba(255,248,244,0.56)_14%,rgba(255,248,244,0.12)_33%,rgba(24,18,18,0.04)_100%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_50%,rgba(0,0,0,0)_22%,rgba(0,0,0,0.16)_100%)]" />
         </div>
       </div>
