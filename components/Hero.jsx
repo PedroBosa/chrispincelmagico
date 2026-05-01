@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowUpRight, BadgeCheck, Gem, Sparkles } from "lucide-react";
 import Container from "@/components/Container";
 import { bookingLink, heroHighlights, publicAsset } from "@/data/site";
@@ -21,13 +20,13 @@ export default function Hero() {
       <div className="pointer-events-none absolute bottom-[-12rem] left-[30%] h-[26rem] w-[26rem] rounded-full bg-[#ffe1e8]/42 blur-3xl" />
 
       <div className="absolute inset-x-0 top-0 h-[100svh] overflow-hidden lg:hidden">
-        <Image
-          src={publicAsset("/src/img/chris-salao.png")}
-          alt="Chris Pincel Mágico em seu studio"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[43%_18%]"
+        <video
+          src={publicAsset("/src/videos/hero-video.mp4")}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover object-[43%_18%]"
         />
         <div className="pointer-events-none absolute right-[-4rem] top-[3rem] h-44 w-44 rounded-full bg-[#0c6e70]/20 blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(28,22,22,0.44)_0%,rgba(28,22,22,0.18)_26%,rgba(255,248,244,0.76)_56%,rgba(255,248,244,0.95)_79%,#fff8f4_100%)]" />
@@ -35,13 +34,13 @@ export default function Hero() {
 
       <div className="absolute inset-y-0 right-0 hidden w-[56vw] lg:block">
         <div className="relative h-full w-full overflow-hidden rounded-l-[4rem] border-l border-white/55 shadow-[-22px_0_76px_rgba(41,26,26,0.12)]">
-          <Image
-            src={publicAsset("/src/img/chris-salao.png")}
-            alt="Chris Pincel Mágico em seu studio"
-            fill
-            priority
-            sizes="56vw"
-            className="object-cover object-[37%_18%]"
+          <video
+            src={publicAsset("/src/videos/hero-video.mp4")}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover object-[37%_18%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,248,244,0.96)_0%,rgba(255,248,244,0.56)_14%,rgba(255,248,244,0.12)_33%,rgba(24,18,18,0.04)_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_50%,rgba(0,0,0,0)_22%,rgba(0,0,0,0.16)_100%)]" />
