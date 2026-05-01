@@ -12,7 +12,7 @@ const heroStats = [
 ];
 
 export default function Hero() {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
   return (
     <section
