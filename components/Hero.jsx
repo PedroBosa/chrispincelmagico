@@ -49,7 +49,7 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10 h-full">
-        <div className="grid min-h-screen min-h-[100svh] items-end gap-8 pb-7 pt-[6.05rem] sm:gap-10 sm:pb-12 sm:pt-[7rem] lg:h-full lg:min-h-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-10 lg:pb-5 lg:pt-[7.1rem]">
+        <div className="grid min-h-screen min-h-[100svh] items-end gap-8 pb-7 pt-[7.55rem] sm:gap-10 sm:pb-12 sm:pt-[8.5rem] lg:h-full lg:min-h-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-10 lg:pb-5 lg:pt-[8.6rem]">
           <div className="space-y-6 sm:space-y-8 lg:max-w-[40rem] lg:space-y-5 lg:rounded-[2rem] lg:border lg:border-white/65 lg:bg-white/56 lg:p-5 lg:shadow-[0_26px_72px_rgba(41,26,26,0.11)] lg:backdrop-blur-xl">
             <div className="space-y-4 sm:space-y-5 lg:space-y-3">
               <span className="section-kicker">

@@ -6,6 +6,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 import { bookingLink, navLinks, publicAsset } from "@/data/site";
+import { Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,7 +132,17 @@ export default function Navbar() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed inset-x-0 top-3 z-50 sm:top-4">
+      <div className="fixed inset-x-0 top-0 z-[60] bg-[#0c6e70] px-4 py-2 text-center text-[0.85rem] font-medium text-white shadow-md">
+        <div className="flex items-center justify-center gap-2">
+          <Sparkles size={16} className="shrink-0 text-[#ffb6c1]" />
+          <span>
+            Especial de Maio: Sobrancelha de <span className="line-through opacity-75">R$300</span> por <strong className="text-[#ffb6c1]">R$200</strong>!
+          </span>
+          <Sparkles size={16} className="shrink-0 text-[#ffb6c1] hidden sm:block" />
+        </div>
+      </div>
+
+      <header className="fixed inset-x-0 top-[2.75rem] z-50 sm:top-[3.25rem]">
         <Container>
           <div className="mx-auto max-w-[1180px]">
             <div className={`${headerClasses} overflow-hidden`}>
