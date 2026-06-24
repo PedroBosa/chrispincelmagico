@@ -59,7 +59,7 @@ export default function PromoModal() {
             
             <div className="relative w-full bg-black flex justify-center">
               <video
-                src={publicAsset("/src/videos/hero-video.mp4")}
+                src={publicAsset("/src/videos/promo-video.mp4")}
                 autoPlay
                 controls
                 playsInline
@@ -69,10 +69,10 @@ export default function PromoModal() {
             
             <div className="p-5 text-center bg-white/50 backdrop-blur-md">
               <h3 className="font-display text-2xl font-semibold text-[#2d2625] mb-2">
-                Especial de Maio!
+                Promoção Especial!
               </h3>
               <p className="text-[#6d615d] text-[0.95rem] leading-snug mb-4">
-                Sobrancelha de <span className="line-through opacity-75">R$300</span> por <strong className="text-[#0c6e70] font-bold text-lg">R$200</strong>. Agenda liberada com vagas limitadas!
+                Micropigmentação por <strong className="text-[#0c6e70] font-bold text-lg">R$ 200</strong>! Parcele em até 4x sem juros ou ganhe mais desconto no Pix/Espécie. <br/> Apenas <strong>10 vagas limitadas!</strong>
               </p>
               <button
                 onClick={() => setIsOpen(false)}
