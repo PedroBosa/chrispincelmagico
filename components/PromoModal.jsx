@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { publicAsset } from "@/data/site";
+import { publicAsset, bookingLink } from "@/data/site";
 
 export default function PromoModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,12 +74,15 @@ export default function PromoModal() {
               <p className="text-[#6d615d] text-[0.95rem] leading-snug mb-4">
                 Micropigmentação por <strong className="text-[#0c6e70] font-bold text-lg">R$ 200</strong>! Parcele em até 4x sem juros ou ganhe mais desconto no Pix/Espécie. <br/> Apenas <strong>10 vagas limitadas!</strong>
               </p>
-              <button
+              <a
+                href={bookingLink}
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="w-full btn-primary py-3"
+                className="w-full btn-primary py-3 inline-block text-center"
               >
                 Quero Aproveitar
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

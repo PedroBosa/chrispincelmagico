@@ -137,7 +137,12 @@ export default function Navbar() {
           <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
             <Sparkles size={14} className="shrink-0 text-[#ffb6c1]" />
             <span>
-              Especial de Maio: Sobrancelha de <span className="line-through opacity-75">R$300</span> por <strong className="text-[#ffb6c1]">R$200</strong>!
+              <span className="sm:hidden">
+                Micro por <strong className="text-[#ffb6c1]">R$ 200</strong>! 4x s/juros ou +desc. no Pix. 10 vagas!
+              </span>
+              <span className="hidden sm:inline">
+                Promoção Especial: Micropigmentação por <strong className="text-[#ffb6c1]">R$ 200</strong>! Em até 4x s/ juros, desconto no Pix/Espécie e apenas 10 vagas!
+              </span>
             </span>
             <Sparkles size={14} className="shrink-0 text-[#ffb6c1] hidden sm:block" />
           </div>
