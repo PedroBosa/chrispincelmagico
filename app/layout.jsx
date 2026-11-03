@@ -1,21 +1,5 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { publicAsset } from "@/data/site";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
 
 export const metadata = {
   title:
@@ -43,7 +27,7 @@ const jsonLd = {
   description:
     "Design de sobrancelhas, micropigmentação fio a fio e labial, cílios e cuidados faciais em Floriano-PI e Barão de Grajaú-MA.",
   telephone: "+55-89-99422-1565",
-  url: "https://pedrobosa.github.io/chrispincelmagico/",
+  url: "https://chrispincelmagico.com.br/",
   sameAs: ["https://www.instagram.com/chrispincelmagico/"],
   priceRange: "$$",
   address: [
@@ -67,17 +51,24 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${manrope.variable} ${cormorant.variable} scroll-smooth`}
-    >
-      <body className="font-sans antialiased">
+    <html lang="pt-BR" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
-      </body>
+      </head>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
