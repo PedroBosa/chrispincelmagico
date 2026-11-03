@@ -11,9 +11,13 @@ export default function SectionHeading({
       : "items-start text-left";
 
   return (
-    <div className={["flex flex-col gap-6", alignment, className].filter(Boolean).join(" ")}>
+    <div
+      className={["flex flex-col gap-3.5", alignment, className]
+        .filter(Boolean)
+        .join(" ")}
+    >
       {eyebrow ? <span className="section-kicker">{eyebrow}</span> : null}
-      <div className="space-y-5">
+      <div className="space-y-3.5">
         <h2 className="section-title text-balance">{title}</h2>
         {description ? <p className="section-copy">{description}</p> : null}
       </div>

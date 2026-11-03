@@ -1,41 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowUpRight,
-  Camera,
-  Mail,
-  MapPinned,
-  MessageCircle,
-  PhoneCall,
-  Send,
-} from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import {
   contactMethods,
-  instagramLink,
   serviceOptions,
   studioLocations,
   whatsappDirectLink,
 } from "@/data/site";
-
-const iconMap = {
-  MessageCircle,
-  PhoneCall,
-  Mail,
-};
 
 const initialForm = {
   name: "",
   phone: "",
   unit: "Floriano-PI",
   service: serviceOptions[0],
-  message: "Olá! Gostaria de agendar um atendimento.",
+  message: "",
 };
 
 const fieldClassName =
-  "w-full rounded-2xl border border-[#25201f]/15 bg-[#faf7f2] px-4 py-3 text-[0.95rem] text-[#25201f] outline-none placeholder:text-[#8c817d] focus:border-[#0c6e70] focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/15";
+  "w-full rounded-xl border border-[#25201f]/15 bg-[#faf7f2] px-3.5 py-2.5 text-sm text-[#25201f] outline-none placeholder:text-[#8c817d] focus:border-[#0c6e70] focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/15";
 
 export default function Contact() {
   const [formData, setFormData] = useState(initialForm);
@@ -43,7 +28,6 @@ export default function Contact() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormData((current) => ({
       ...current,
       [name]: value,
@@ -58,8 +42,8 @@ export default function Contact() {
       `Meu nome é ${formData.name || "Cliente"}.`,
       formData.phone ? `Meu telefone é ${formData.phone}.` : null,
       `Tenho interesse em: ${formData.service}.`,
-      `Prefiro atendimento na unidade de: ${formData.unit}.`,
-      formData.message,
+      `Unidade de preferência: ${formData.unit}.`,
+      formData.message ? `Observações: ${formData.message}` : null,
     ]
       .filter(Boolean)
       .join(" ");
@@ -70,92 +54,70 @@ export default function Contact() {
       "noopener,noreferrer",
     );
 
-    setFeedback("Mensagem preparada! Abrindo o WhatsApp...");
+    setFeedback("Abrindo conversa no WhatsApp...");
   };
 
   return (
-    <section id="contact" className="section-padding relative bg-[#faf7f2] overflow-hidden">
+    <section
+      id="contact"
+      className="section-padding relative bg-[#faf7f2] overflow-hidden"
+    >
       <Container>
-        <div className="grid grid-cols-1 items-start gap-8 sm:gap-12 lg:grid-cols-[0.92fr_1.08fr] min-w-0 w-full">
-          <div className="space-y-6 min-w-0 w-full">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 min-w-0 w-full">
+          {/* Coluna Esquerda: Canais Diretos + Formulário */}
+          <div className="space-y-8 min-w-0 w-full">
             <SectionHeading
-              eyebrow="Onde nos encontrar"
-              title="Dois studios acolhedores pensados para cuidar de você com calma."
-              description="Escolha a unidade mais conveniente em Floriano ou Barão. Se preferir, use o formulário abaixo para adiantar seu agendamento no WhatsApp."
+              eyebrow="Agendamento & Endereços"
+              title="Onde atendemos."
+              description="Escolha a unidade mais próxima em Floriano-PI ou Barão de Grajaú-MA. Atendemos com hora marcada."
             />
 
-            {/* Cartões de Contato Rápido */}
-            <div className="grid gap-3.5">
-              {contactMethods.map((method) => {
-                const Icon = iconMap[method.icon];
-
-                return (
-                  <a
-                    key={method.label}
-                    href={method.href}
-                    target={method.href.startsWith("http") ? "_blank" : undefined}
-                    rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="flex w-full min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-3.5 sm:p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
-                  >
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
-                      <Icon size={20} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
-                        {method.label}
-                      </p>
-                      <p className="text-sm sm:text-base font-medium text-[#25201f] truncate">
-                        {method.value}
-                      </p>
-                    </div>
-                    <ArrowUpRight className="ml-auto shrink-0 text-[#0c6e70]" size={18} />
-                  </a>
-                );
-              })}
-
-              <a
-                href={instagramLink}
-                target="_blank"
-                rel="noreferrer"
-                className="flex w-full items-center gap-3.5 sm:gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-3.5 sm:p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
-              >
-                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
-                  <Camera size={19} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
-                    Instagram
-                  </p>
-                  <p className="text-sm sm:text-base font-medium text-[#25201f] truncate">@chrispincelmagico</p>
-                </div>
-                <ArrowUpRight className="ml-auto shrink-0 text-[#0c6e70]" size={18} />
-              </a>
+            {/* Lista Limpa de Canais de Contato */}
+            <div className="divide-y divide-[#25201f]/10 border-y border-[#25201f]/10">
+              {contactMethods.map((method) => (
+                <a
+                  key={method.label}
+                  href={method.href}
+                  target={method.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    method.href.startsWith("http") ? "noreferrer" : undefined
+                  }
+                  className="flex items-center justify-between gap-4 py-3.5 group"
+                >
+                  <div className="min-w-0">
+                    <span className="block text-[0.7rem] font-semibold uppercase tracking-wider text-[#685e5a]">
+                      {method.label}
+                    </span>
+                    <span className="text-sm sm:text-base font-medium text-[#25201f] group-hover:text-[#0c6e70] transition-colors truncate block">
+                      {method.value}
+                    </span>
+                  </div>
+                  <ArrowUpRight
+                    size={17}
+                    className="shrink-0 text-[#8c817d] group-hover:text-[#0c6e70] transition-colors"
+                  />
+                </a>
+              ))}
             </div>
 
-            {/* Formulário de Pré-Agendamento Humanizado */}
+            {/* Formulário de Pré-Agendamento Direto para o WhatsApp */}
             <form
               onSubmit={handleSubmit}
-              className="w-full min-w-0 rounded-[1.8rem] sm:rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-5 sm:p-7 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
+              className="w-full min-w-0 rounded-2xl border border-[#25201f]/10 bg-white p-5 sm:p-7 shadow-[0_8px_24px_rgba(37,32,31,0.03)]"
             >
-              <div className="mb-6 rounded-2xl bg-[#faf7f2] p-4 border border-[#25201f]/[0.06]">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
-                    <Send size={18} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
-                      Agendamento Prático
-                    </p>
-                    <p className="text-sm text-[#5f5552]">
-                      Preencha os dados abaixo e envie direto no WhatsApp.
-                    </p>
-                  </div>
-                </div>
+              <div className="mb-5">
+                <h3 className="font-display text-2xl font-semibold text-[#25201f]">
+                  Adiantar agendamento
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-[#685e5a]">
+                  Selecione o procedimento e a unidade para iniciar a conversa
+                  no WhatsApp já preenchida.
+                </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
-                  Seu Nome
+              <div className="grid gap-3.5 sm:grid-cols-2">
+                <label className="grid gap-1 text-xs font-medium text-[#5f5552]">
+                  Seu nome
                   <input
                     required
                     className={fieldClassName}
@@ -167,8 +129,8 @@ export default function Contact() {
                   />
                 </label>
 
-                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
-                  WhatsApp
+                <label className="grid gap-1 text-xs font-medium text-[#5f5552]">
+                  Telefone / WhatsApp
                   <input
                     className={fieldClassName}
                     type="tel"
@@ -180,9 +142,9 @@ export default function Contact() {
                 </label>
               </div>
 
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
-                  Unidade de Preferência
+              <div className="mt-3.5 grid gap-3.5 sm:grid-cols-2">
+                <label className="grid gap-1 text-xs font-medium text-[#5f5552]">
+                  Unidade
                   <select
                     className={fieldClassName}
                     name="unit"
@@ -197,8 +159,8 @@ export default function Contact() {
                   </select>
                 </label>
 
-                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
-                  Procedimento de Interesse
+                <label className="grid gap-1 text-xs font-medium text-[#5f5552]">
+                  Procedimento
                   <select
                     className={fieldClassName}
                     name="service"
@@ -214,48 +176,47 @@ export default function Contact() {
                 </label>
               </div>
 
-              <label className="mt-4 grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
-                Observações ou Dúvidas
+              <label className="mt-3.5 grid gap-1 text-xs font-medium text-[#5f5552]">
+                Observações (opcional)
                 <textarea
-                  className={`${fieldClassName} min-h-[110px] resize-none leading-relaxed`}
+                  className={`${fieldClassName} min-h-[84px] resize-none leading-relaxed`}
                   name="message"
-                  placeholder="Alguma dúvida, data de preferência ou detalhe que queira compartilhar?"
+                  placeholder="Dia ou turno de preferência, dúvidas..."
                   value={formData.message}
                   onChange={handleChange}
                 />
               </label>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <button type="submit" className="btn-primary w-full justify-center sm:w-auto">
-                  <span>Adiantar no WhatsApp</span>
+              <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
+                <button
+                  type="submit"
+                  className="btn-primary w-full sm:w-auto justify-center"
+                >
+                  <span>Enviar pelo WhatsApp</span>
                   <ArrowUpRight size={16} />
                 </button>
                 {feedback ? (
-                  <p className="rounded-xl bg-[#0c6e70]/10 px-3 py-1.5 text-xs font-medium text-[#0c6e70]">
+                  <span className="text-xs font-medium text-[#0c6e70]">
                     {feedback}
-                  </p>
-                ) : (
-                  <p className="text-xs text-[#8c817d]">
-                    Abrirá diretamente sua conversa no WhatsApp com a mensagem pronta.
-                  </p>
-                )}
+                  </span>
+                ) : null}
               </div>
             </form>
           </div>
 
-          {/* Cards dos Studios em Floriano e Barão */}
-          <div className="grid auto-rows-max content-start gap-6 self-start min-w-0 w-full">
+          {/* Coluna Direita: Endereços e Mapas das 2 Unidades */}
+          <div className="grid gap-6 min-w-0 w-full">
             {studioLocations.map((location) => (
               <article
                 key={location.id}
-                className="w-full min-w-0 self-start overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-4 sm:p-6 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
+                className="w-full min-w-0 overflow-hidden rounded-2xl border border-[#25201f]/10 bg-white p-5 sm:p-6 shadow-[0_8px_24px_rgba(37,32,31,0.03)]"
               >
-                <div className="mb-4 flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3 border-b border-[#25201f]/[0.08]">
+                  <div>
+                    <span className="text-[0.7rem] font-semibold uppercase tracking-wider text-[#0c6e70]">
                       {location.city}
                     </span>
-                    <h3 className="mt-1 text-2xl font-display font-semibold text-[#25201f]">
+                    <h3 className="font-display text-2xl font-semibold text-[#25201f]">
                       {location.title}
                     </h3>
                   </div>
@@ -264,23 +225,27 @@ export default function Contact() {
                     href={location.mapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 self-start text-xs font-semibold text-[#0c6e70] hover:text-[#074749] sm:self-auto"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#0c6e70] hover:text-[#074749] self-start sm:self-auto"
                   >
                     <span>Abrir no Google Maps</span>
-                    <ArrowUpRight size={15} />
+                    <ArrowUpRight size={14} />
                   </a>
                 </div>
 
-                <div className="mb-4 flex items-start gap-2.5 text-sm text-[#685e5a]">
-                  <MapPinned className="mt-0.5 shrink-0 text-[#0c6e70]" size={16} />
+                <div className="my-3.5 flex items-start gap-2 text-xs sm:text-sm text-[#5f5552]">
+                  <MapPin
+                    className="mt-0.5 shrink-0 text-[#0c6e70]"
+                    size={15}
+                  />
                   <p>{location.address}</p>
                 </div>
 
-                <div className="overflow-hidden rounded-2xl border border-[#25201f]/[0.08]">
+                <div className="overflow-hidden rounded-xl border border-[#25201f]/10 bg-[#eee6dc]">
                   <iframe
                     title={`Mapa do ${location.title}`}
                     src={location.mapEmbed}
-                    className="h-56 w-full border-0 sm:h-64"
+                    loading="lazy"
+                    className="h-52 w-full border-0 sm:h-56"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>

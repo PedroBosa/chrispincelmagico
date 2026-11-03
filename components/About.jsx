@@ -1,90 +1,78 @@
 import Image from "next/image";
-import { CheckCircle2, Heart, Sparkles } from "lucide-react";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
-import { aboutStats, publicAsset } from "@/data/site";
+import { publicAsset } from "@/data/site";
 
 export default function About() {
   return (
     <section id="about" className="section-padding relative bg-[#faf7f2]">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          {/* Foto Editorial da Christianne */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-[#25201f]/[0.08] bg-[#eee6dc] shadow-[0_16px_45px_rgba(37,32,31,0.06)]">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Retrato da Christianne */}
+          <div className="w-full max-w-[440px] mx-auto lg:max-w-none">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#25201f]/10 bg-[#eee6dc] shadow-[0_16px_36px_-14px_rgba(37,32,31,0.1)]">
               <Image
                 src={publicAsset("/src/img/christianne.jpg")}
-                alt="Christianne, fundadora da Chris Pincel Mágico"
+                alt="Christianne, especialista em olhar e fundadora do studio Chris Pincel Mágico"
                 fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
+                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 420px"
                 className="object-cover"
               />
             </div>
-
-            {/* Citação Editorial Autoral */}
-            <div className="mt-5 rounded-2xl border border-[#25201f]/[0.08] bg-white p-5 shadow-sm">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#0c6e70] mb-2">
-                <Heart size={14} className="text-[#0c6e70]" />
-                <span>Propósito do Studio</span>
-              </div>
-              <p className="font-display text-lg sm:text-xl text-[#25201f] italic leading-snug">
-                “Beleza bem executada começa na escuta atenta, continua na técnica apurada e se revela na naturalidade do resultado.”
-              </p>
-              <p className="mt-2 text-xs text-[#8c817d] font-medium text-right">
-                — Christianne
-              </p>
-            </div>
           </div>
 
-          {/* Conteúdo Humanizado sobre a Chris */}
-          <div className="order-1 lg:order-2">
+          {/* Trajetória e Filosofia de Trabalho */}
+          <div>
             <SectionHeading
-              eyebrow="Quem é a Chris"
-              title="Mais de 10 anos dedicados a cuidar da beleza e da autoestima de cada cliente."
-              description="Especialista em micropigmentação e harmonização do olhar, Christianne construiu sua história com técnica autoral, biossegurança rigorosa e muito carinho."
+              eyebrow="Sobre a Especialista"
+              title="Mais de dez anos dedicados à naturalidade do olhar."
             />
 
-            <div className="mt-7 space-y-4 text-base sm:text-[1.05rem] text-[#5f5552] leading-relaxed">
+            <div className="mt-6 space-y-4 text-base sm:text-[1.04rem] text-[#5f5552] leading-relaxed">
               <p>
-                O <strong>Chris Pincel Mágico</strong> nasceu do desejo de oferecer um atendimento verdadeiramente acolhedor. Aqui, você não é apenas mais um horário na agenda: analisamos seus traços, ouvimos suas preferências e respeitamos a sua expressão facial.
+                À frente do <strong>Chris Pincel Mágico</strong>, Christianne
+                construiu sua trajetória unindo precisão técnica e escuta
+                atenta. Cada atendimento começa pela análise das proporções do
+                rosto, da estrutura dos fios e do estilo pessoal de cada
+                cliente.
               </p>
               <p>
-                Com dois studios estruturados — em <strong>Floriano-PI</strong> e em <strong>Barão de Grajaú-MA</strong> —, o compromisso é sempre o mesmo: produtos de primeira linha, biossegurança em cada detalhe e resultados que realçam o seu melhor sem parecer artificial.
+                Com unidades próprias em <strong>Floriano-PI</strong> e em{" "}
+                <strong>Barão de Grajaú-MA</strong>, o studio funciona com
+                horários individuais reservados, garantindo um ambiente
+                tranquilo, biossegurança rigorosa e resultados delicados que
+                valorizam a beleza sem traços pesados.
               </p>
             </div>
 
-            {/* Pilares em Cartões Limpos */}
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {aboutStats.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 text-center sm:text-left shadow-sm"
-                >
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-[#0c6e70]">
-                    {item.value}
-                  </p>
-                  <p className="mt-1 text-xs text-[#685e5a] leading-snug">{item.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Diferenciais Humanizados */}
-            <div className="mt-8 space-y-2.5">
-              {[
-                "Avaliação personalizada antes de iniciar qualquer procedimento.",
-                "Uso de pigmentos e materiais descartáveis com registro e segurança.",
-                "Ambiente calmo e aconchegante para você relaxar enquanto se cuida.",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-xl bg-white/70 px-4 py-3 border border-[#25201f]/[0.06]"
-                >
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-[#0c6e70]" />
-                  <p className="text-sm text-[#463e3b] font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
+            {/* Dados objetivos separados por linhas finas */}
+            <dl className="mt-8 pt-6 border-t border-[#25201f]/10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <dt className="font-display text-2xl sm:text-3xl font-semibold text-[#25201f]">
+                  10+ anos
+                </dt>
+                <dd className="mt-1 text-xs sm:text-sm text-[#685e5a]">
+                  De experiência em estética e olhar
+                </dd>
+              </div>
+              <div>
+                <dt className="font-display text-2xl sm:text-3xl font-semibold text-[#25201f]">
+                  2 studios
+                </dt>
+                <dd className="mt-1 text-xs sm:text-sm text-[#685e5a]">
+                  Floriano-PI e Barão de Grajaú-MA
+                </dd>
+              </div>
+              <div>
+                <dt className="font-display text-2xl sm:text-3xl font-semibold text-[#25201f]">
+                  Hora marcada
+                </dt>
+                <dd className="mt-1 text-xs sm:text-sm text-[#685e5a]">
+                  Atendimento individual e sem pressa
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </Container>
