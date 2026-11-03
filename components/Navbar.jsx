@@ -69,7 +69,7 @@ export default function Navbar() {
       id="site-header"
     >
       <div className="hdr-in">
-        {/* Marca / Logo sempre à esquerda */}
+        {/* Marca / Logo à esquerda */}
         <a
           href="#home"
           className="brand"
@@ -88,7 +88,7 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Menu de links (recolhido no topo, expande suavemente ao rolar) */}
+        {/* Menu central que expande com fluidez */}
         <nav
           className={`hdr-nav ${isMenuOpen ? "is-open" : ""}`}
           id="site-nav"
@@ -111,33 +111,20 @@ export default function Navbar() {
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
           >
-            <span>Agendar no WhatsApp</span>
+            <span>Agendar Horário no WhatsApp</span>
             <ArrowUpRight size={15} />
           </a>
         </nav>
 
-        {/* Botão de ação que expande junto com o menu ao rolar */}
-        <div className="hdr-act">
-          <a
-            className="sbtn sbtn--fill"
-            href={bookingLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>Agendar Horário</span>
-            <ArrowUpRight size={14} />
-          </a>
-        </div>
-
-        {/* Botão rápido no topo (discreto estilo outlined do portfólio de Pedro) */}
+        {/* Botão de ação único: o mesmo elemento transiciona suavemente de outlined (topo) para sólido teal (rolagem) */}
         <a
-          className="hdr-quick"
+          className="hdr-cta"
           href={bookingLink}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span>Agendar</span>
-          <ArrowUpRight size={13} />
+          <span>Agendar Horário</span>
+          <ArrowUpRight size={14} />
         </a>
 
         {/* Botão hambúrguer no mobile */}

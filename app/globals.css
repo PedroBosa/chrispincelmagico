@@ -186,7 +186,7 @@
 }
 
 /* ==========================================================================
-   Header Flutuante Estilo Pedro Bosa
+   Header Flutuante Estilo Pedro Bosa (Fluido com Botão Único)
    ========================================================================== */
 
 :root {
@@ -200,8 +200,8 @@
   display: flex;
   justify-content: center;
   pointer-events: none;
-  padding: 0 1rem;
-  transition: padding 0.45s var(--ease);
+  padding: 0 1.25rem;
+  transition: padding 0.5s var(--ease);
 }
 
 .hdr.is-scrolled {
@@ -212,10 +212,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
   width: 100%;
   max-width: 1140px;
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.25rem;
   border: 1px solid transparent;
   border-radius: 0;
   pointer-events: auto;
@@ -223,14 +223,14 @@
     max-width 0.5s var(--ease),
     padding 0.5s var(--ease),
     border-radius 0.5s var(--ease),
-    background 0.3s,
-    border-color 0.3s,
-    box-shadow 0.3s;
+    background 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
 }
 
 .hdr.is-scrolled .hdr-in {
   max-width: 980px;
-  padding: 0.45rem 0.5rem 0.45rem 1.15rem;
+  padding: 0.45rem 0.55rem 0.45rem 1.15rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.94);
   -webkit-backdrop-filter: blur(14px) saturate(170%);
@@ -244,45 +244,40 @@
 .brand {
   display: flex;
   align-items: center;
-  margin-right: auto;
   flex-shrink: 0;
   text-decoration: none;
 }
 
-/* Menu central e CTA principal: recolhidos no topo, expandem ao rolar */
-.hdr-nav,
-.hdr-act {
+/* Menu central: recolhido no topo, expande suavemente no centro ao rolar */
+.hdr-nav {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
+  gap: 0.3rem;
   max-width: 0;
   opacity: 0;
   overflow: hidden;
   visibility: hidden;
   white-space: nowrap;
+  pointer-events: none;
+  margin: 0;
   transition:
     max-width 0.5s var(--ease),
-    opacity 0.3s,
+    opacity 0.25s ease-out,
+    margin 0.5s var(--ease),
     visibility 0s linear 0.4s;
 }
 
 .hdr.is-scrolled .hdr-nav {
-  max-width: 34rem;
+  max-width: 36rem;
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  margin: 0 0.85rem;
   transition:
     max-width 0.5s var(--ease),
-    opacity 0.4s 0.08s,
-    visibility 0s;
-}
-
-.hdr.is-scrolled .hdr-act {
-  max-width: 16rem;
-  opacity: 1;
-  visibility: visible;
-  transition:
-    max-width 0.5s var(--ease),
-    opacity 0.4s 0.14s,
+    opacity 0.35s ease-in 0.12s,
+    margin 0.5s var(--ease),
     visibility 0s;
 }
 
@@ -306,72 +301,50 @@
   display: none;
 }
 
-/* Botão pequeno de CTA quando a barra se transforma em pílula */
-.sbtn {
+/* Botão de ação único: transiciona suavemente de outlined (topo) para sólido teal (rolagem) */
+.hdr-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.48rem 0.95rem;
+  gap: 0.38rem;
+  padding: 0.45rem 1rem;
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
+  flex-shrink: 0;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.sbtn--fill {
-  background: #0c6e70;
-  border: 1px solid #0c6e70;
-  color: #ffffff;
-  box-shadow: 0 4px 12px -2px rgba(12, 110, 112, 0.35);
-}
-
-.sbtn--fill:hover {
-  background: #074749;
-  border-color: #074749;
-  color: #ffffff;
-}
-
-/* Botão de topo (estilo .lang do portfólio de Pedro, discreto) */
-.hdr-quick {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.42rem 0.9rem;
   border: 1px solid rgba(37, 32, 31, 0.2);
-  border-radius: 9999px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: #25201f;
   background: rgba(255, 255, 255, 0.65);
-  text-decoration: none;
-  white-space: nowrap;
+  color: #25201f;
+  box-shadow: 0 1px 3px rgba(37, 32, 31, 0.05);
   transition:
-    max-width 0.4s var(--ease),
-    opacity 0.25s,
-    padding 0.4s var(--ease),
-    background 0.2s,
-    border-color 0.2s,
-    color 0.2s;
+    background 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease),
+    transform 0.2s var(--ease);
 }
 
-.hdr-quick:hover {
+.hdr-cta:hover {
   background: #ffffff;
   border-color: #0c6e70;
   color: #0c6e70;
+  transform: translateY(-1px);
 }
 
-.hdr.is-scrolled .hdr-quick {
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  visibility: hidden;
-  padding: 0;
-  margin: 0;
-  border-width: 0;
-  pointer-events: none;
+.hdr.is-scrolled .hdr-cta {
+  background: #0c6e70;
+  border-color: #0c6e70;
+  color: #ffffff;
+  box-shadow: 0 4px 14px -2px rgba(12, 110, 112, 0.38);
+}
+
+.hdr.is-scrolled .hdr-cta:hover {
+  background: #074749;
+  border-color: #074749;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 /* Botão hambúrguer no mobile */
@@ -426,16 +399,12 @@
 
 /* Regras Mobile (< 941px) */
 @media (max-width: 940px) {
+  .hdr-cta {
+    display: none !important;
+  }
+
   .menu-btn {
     display: inline-flex;
-  }
-
-  .hdr-act {
-    display: none !important;
-  }
-
-  .hdr-quick {
-    display: none !important;
   }
 
   .hdr-nav {
@@ -450,6 +419,7 @@
     max-width: none !important;
     max-height: 0;
     padding: 0 0.5rem;
+    margin: 0 !important;
     overflow: hidden;
     border: 1px solid rgba(37, 32, 31, 0.12);
     border-radius: 1.25rem;
@@ -472,6 +442,7 @@
     padding: 0.75rem 0.6rem;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transition:
       max-height 0.35s var(--ease),
       padding 0.3s var(--ease),
@@ -485,6 +456,7 @@
     padding: 0 0.5rem;
     opacity: 0;
     visibility: hidden;
+    margin: 0 !important;
     transition:
       max-height 0.3s var(--ease),
       padding 0.3s var(--ease),
@@ -497,6 +469,7 @@
     padding: 0.75rem 0.6rem;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transition:
       max-height 0.35s var(--ease),
       padding 0.3s var(--ease),
