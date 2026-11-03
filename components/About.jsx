@@ -14,7 +14,7 @@ export default function About() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-[#25201f]/[0.08] bg-[#eee6dc] shadow-[0_16px_45px_rgba(37,32,31,0.06)]">
               <Image
                 src={publicAsset("/src/img/christianne.jpg")}
-                alt="Christianne Bosa, fundadora da Chris Pincel Mágico"
+                alt="Christianne, fundadora da Chris Pincel Mágico"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -32,7 +32,7 @@ export default function About() {
                 “Beleza bem executada começa na escuta atenta, continua na técnica apurada e se revela na naturalidade do resultado.”
               </p>
               <p className="mt-2 text-xs text-[#8c817d] font-medium text-right">
-                — Christianne Bosa
+                — Christianne
               </p>
             </div>
           </div>

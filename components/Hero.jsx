@@ -74,7 +74,7 @@ export default function Hero() {
             <div className="relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-[#25201f]/[0.08] bg-[#f2ede4] shadow-[0_20px_50px_rgba(37,32,31,0.08)]">
               <Image
                 src={publicAsset("/src/img/chris-salao.png")}
-                alt="Christianne Bosa em seu studio de beleza Chris Pincel Mágico"
+                alt="Christianne em seu studio de beleza Chris Pincel Mágico"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
@@ -87,7 +87,7 @@ export default function Hero() {
               {/* Tag autêntica no canto inferior */}
               <div className="absolute bottom-5 left-5 right-5 sm:left-6 sm:right-auto bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] border border-[#25201f]/10">
                 <p className="font-display text-lg font-semibold text-[#25201f] leading-tight">
-                  Christianne Bosa
+                  Christianne
                 </p>
                 <p className="text-xs text-[#0c6e70] font-medium tracking-wide uppercase mt-0.5">
                   Especialista em Olhar & Micropigmentação
