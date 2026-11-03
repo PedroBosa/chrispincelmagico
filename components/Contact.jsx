@@ -74,10 +74,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative bg-[#faf7f2]">
+    <section id="contact" className="section-padding relative bg-[#faf7f2] overflow-hidden">
       <Container>
-        <div className="grid items-start gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 items-start gap-8 sm:gap-12 lg:grid-cols-[0.92fr_1.08fr] min-w-0 w-full">
+          <div className="space-y-6 min-w-0 w-full">
             <SectionHeading
               eyebrow="Onde nos encontrar"
               title="Dois studios acolhedores pensados para cuidar de você com calma."
@@ -95,7 +95,7 @@ export default function Contact() {
                     href={method.href}
                     target={method.href.startsWith("http") ? "_blank" : undefined}
                     rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="flex w-full items-center gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
+                    className="flex w-full min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-3.5 sm:p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
                       <Icon size={20} />
@@ -104,7 +104,7 @@ export default function Contact() {
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
                         {method.label}
                       </p>
-                      <p className="text-sm sm:text-base font-medium text-[#25201f]">
+                      <p className="text-sm sm:text-base font-medium text-[#25201f] truncate">
                         {method.value}
                       </p>
                     </div>
@@ -117,16 +117,16 @@ export default function Contact() {
                 href={instagramLink}
                 target="_blank"
                 rel="noreferrer"
-                className="flex w-full items-center gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
+                className="flex w-full items-center gap-3.5 sm:gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-3.5 sm:p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
-                  <Camera size={20} />
+                <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
+                  <Camera size={19} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
                     Instagram
                   </p>
-                  <p className="text-sm sm:text-base font-medium text-[#25201f]">@chrispincelmagico</p>
+                  <p className="text-sm sm:text-base font-medium text-[#25201f] truncate">@chrispincelmagico</p>
                 </div>
                 <ArrowUpRight className="ml-auto shrink-0 text-[#0c6e70]" size={18} />
               </a>
@@ -135,7 +135,7 @@ export default function Contact() {
             {/* Formulário de Pré-Agendamento Humanizado */}
             <form
               onSubmit={handleSubmit}
-              className="w-full rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-6 sm:p-7 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
+              className="w-full min-w-0 rounded-[1.8rem] sm:rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-5 sm:p-7 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
             >
               <div className="mb-6 rounded-2xl bg-[#faf7f2] p-4 border border-[#25201f]/[0.06]">
                 <div className="flex items-center gap-3">
@@ -244,11 +244,11 @@ export default function Contact() {
           </div>
 
           {/* Cards dos Studios em Floriano e Barão */}
-          <div className="grid auto-rows-max content-start gap-6 self-start">
+          <div className="grid auto-rows-max content-start gap-6 self-start min-w-0 w-full">
             {studioLocations.map((location) => (
               <article
                 key={location.id}
-                className="w-full self-start overflow-hidden rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-5 sm:p-6 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
+                className="w-full min-w-0 self-start overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-4 sm:p-6 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
               >
                 <div className="mb-4 flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-w-0">
