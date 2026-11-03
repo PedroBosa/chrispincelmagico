@@ -1,90 +1,87 @@
 import Image from "next/image";
-import { BadgeCheck } from "lucide-react";
+import { CheckCircle2, Heart, Sparkles } from "lucide-react";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import { aboutStats, publicAsset } from "@/data/site";
 
 export default function About() {
   return (
-    <section id="about" className="section-padding relative">
+    <section id="about" className="section-padding relative bg-[#faf7f2]">
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          {/* Foto Editorial da Christianne */}
           <div className="relative order-2 lg:order-1">
-            <div className="absolute -left-6 top-10 hidden h-48 w-48 rounded-full bg-[#ffb6c1]/24 blur-3xl lg:block" />
-            <div className="absolute -right-6 bottom-10 hidden h-52 w-52 rounded-full bg-[#0c6e70]/12 blur-3xl lg:block" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-[#25201f]/[0.08] bg-[#eee6dc] shadow-[0_16px_45px_rgba(37,32,31,0.06)]">
+              <Image
+                src={publicAsset("/src/img/christianne.jpg")}
+                alt="Christianne Bosa, fundadora da Chris Pincel Mágico"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
 
-            <div className="glass-panel luxury-outline relative overflow-hidden rounded-[2.2rem] p-4 sm:p-6">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.7rem]">
-                <Image
-                  src={publicAsset("/src/img/christianne.jpg")}
-                  alt="Christianne, profissional do studio Chris Pincel Mágico"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
-                />
+            {/* Citação Editorial Autoral */}
+            <div className="mt-5 rounded-2xl border border-[#25201f]/[0.08] bg-white p-5 shadow-sm">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#0c6e70] mb-2">
+                <Heart size={14} className="text-[#0c6e70]" />
+                <span>Propósito do Studio</span>
               </div>
-
-              <div className="absolute bottom-8 left-8 right-8 hidden rounded-[1.6rem] border border-white/55 bg-white/76 p-5 backdrop-blur-xl sm:block">
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#0c6e70]">
-                  Assinatura Chris Pincel Mágico
-                </p>
-                <p className="mt-2 text-lg font-display text-[#2d2625]">
-                  “Beleza bem executada começa na escuta, continua na técnica e termina no
-                  detalhe.”
-                </p>
-              </div>
+              <p className="font-display text-lg sm:text-xl text-[#25201f] italic leading-snug">
+                “Beleza bem executada começa na escuta atenta, continua na técnica apurada e se revela na naturalidade do resultado.”
+              </p>
+              <p className="mt-2 text-xs text-[#8c817d] font-medium text-right">
+                — Christianne Bosa
+              </p>
             </div>
           </div>
 
+          {/* Conteúdo Humanizado sobre a Chris */}
           <div className="order-1 lg:order-2">
             <SectionHeading
-              eyebrow="Sobre Christianne"
-              title="Uma trajetória construída com presença, delicadeza e domínio técnico."
-              description="Chris é empreendedora e especialista em beleza há dez anos, com atuação consolidada em design de sobrancelhas, micropigmentação e lash design."
+              eyebrow="Quem é a Chris"
+              title="Mais de 10 anos dedicados a cuidar da beleza e da autoestima de cada cliente."
+              description="Especialista em micropigmentação e harmonização do olhar, Christianne construiu sua história com técnica autoral, biossegurança rigorosa e muito carinho."
             />
 
-            <div className="mt-8 space-y-5 text-base leading-8 text-[#6d615d] sm:text-lg">
+            <div className="mt-7 space-y-4 text-base sm:text-[1.05rem] text-[#5f5552] leading-relaxed">
               <p>
-                Seu trabalho nasceu da combinação entre olhar artístico e cuidado genuíno com a
-                autoestima de cada cliente. Ao longo da jornada, desenvolveu um atendimento
-                acolhedor e altamente personalizado, pensado para entregar conforto, confiança e
-                resultados visualmente sofisticados.
+                O <strong>Chris Pincel Mágico</strong> nasceu do desejo de oferecer um atendimento verdadeiramente acolhedor. Aqui, você não é apenas mais um horário na agenda: analisamos seus traços, ouvimos suas preferências e respeitamos a sua expressão facial.
               </p>
               <p>
-                Hoje, Christianne conduz dois studios, em Floriano e Barão, mantendo a mesma
-                assinatura em ambas as unidades: ambiente agradável, execução precisa e uma
-                experiência que respeita o tempo, o estilo e a identidade de quem chega para ser
-                atendida.
+                Com dois studios estruturados — em <strong>Floriano-PI</strong> e em <strong>Barão de Grajaú-MA</strong> —, o compromisso é sempre o mesmo: produtos de primeira linha, biossegurança em cada detalhe e resultados que realçam o seu melhor sem parecer artificial.
               </p>
             </div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {/* Pilares em Cartões Limpos */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {aboutStats.map((item) => (
                 <div
                   key={item.label}
-                  className="glass-panel luxury-outline rounded-[1.7rem] px-5 py-5"
+                  className="rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 text-center sm:text-left shadow-sm"
                 >
-                  <p className="font-display text-3xl font-semibold text-[#2d2625]">
+                  <p className="font-display text-2xl sm:text-3xl font-semibold text-[#0c6e70]">
                     {item.value}
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-[#6d615d]">{item.label}</p>
+                  <p className="mt-1 text-xs text-[#685e5a] leading-snug">{item.label}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 grid gap-3">
+            {/* Diferenciais Humanizados */}
+            <div className="mt-8 space-y-2.5">
               {[
-                "Atendimento individual com foco na sua harmonia facial.",
-                "Protocolos que equilibram naturalidade, definição e conforto.",
-                "Ambiente acolhedor para uma experiência calma e elegante.",
+                "Avaliação personalizada antes de iniciar qualquer procedimento.",
+                "Uso de pigmentos e materiais descartáveis com registro e segurança.",
+                "Ambiente calmo e aconchegante para você relaxar enquanto se cuida.",
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-3 rounded-[1.4rem] border border-white/60 bg-white/58 px-4 py-3 backdrop-blur-xl"
+                  className="flex items-center gap-3 rounded-xl bg-white/70 px-4 py-3 border border-[#25201f]/[0.06]"
                 >
-                  <BadgeCheck className="mt-0.5 shrink-0 text-[#0c6e70]" size={18} />
-                  <p className="text-sm leading-7 text-[#5a504c]">{item}</p>
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-[#0c6e70]" />
+                  <p className="text-sm text-[#463e3b] font-medium">{item}</p>
                 </div>
               ))}
             </div>

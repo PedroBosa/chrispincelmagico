@@ -60,9 +60,6 @@ const paymentVisuals = {
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#123f41] text-[#fff6ef]">
-      <div className="pointer-events-none absolute left-[-4rem] top-[-3rem] h-44 w-44 rounded-full bg-white/8 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-[-4rem] right-[-4rem] h-56 w-56 rounded-full bg-[#ffb6c1]/12 blur-3xl" />
-
       <Container className="relative py-14 sm:py-16">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.72fr_0.9fr] lg:gap-10">
           <div className="space-y-6">

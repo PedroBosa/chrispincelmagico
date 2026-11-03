@@ -35,7 +35,7 @@ const initialForm = {
 };
 
 const fieldClassName =
-  "w-full rounded-[1.2rem] border border-[#eadfd8] bg-white px-4 py-3.5 text-[0.95rem] text-[#2d2625] outline-none placeholder:text-[#938783] focus:border-[#0c6e70]/35 focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/15";
+  "w-full rounded-2xl border border-[#25201f]/15 bg-[#faf7f2] px-4 py-3 text-[0.95rem] text-[#25201f] outline-none placeholder:text-[#8c817d] focus:border-[#0c6e70] focus:bg-white focus:ring-2 focus:ring-[#0c6e70]/15";
 
 export default function Contact() {
   const [formData, setFormData] = useState(initialForm);
@@ -57,8 +57,8 @@ export default function Contact() {
       "Olá, Chris Pincel Mágico!",
       `Meu nome é ${formData.name || "Cliente"}.`,
       formData.phone ? `Meu telefone é ${formData.phone}.` : null,
-      `Tenho interesse em ${formData.service}.`,
-      `Prefiro atendimento em ${formData.unit}.`,
+      `Tenho interesse em: ${formData.service}.`,
+      `Prefiro atendimento na unidade de: ${formData.unit}.`,
       formData.message,
     ]
       .filter(Boolean)
@@ -70,21 +70,22 @@ export default function Contact() {
       "noopener,noreferrer",
     );
 
-    setFeedback("Mensagem preparada no WhatsApp para finalizar seu agendamento.");
+    setFeedback("Mensagem preparada! Abrindo o WhatsApp...");
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-x-clip">
+    <section id="contact" className="section-padding relative bg-[#faf7f2]">
       <Container>
-        <div className="grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="space-y-6">
             <SectionHeading
-              eyebrow="Contato"
-              title="Duas unidades, um atendimento pensado para receber você com calma e clareza."
-              description="Use o formulário para iniciar o agendamento no WhatsApp ou escolha o canal que fizer mais sentido no seu momento."
+              eyebrow="Onde nos encontrar"
+              title="Dois studios acolhedores pensados para cuidar de você com calma."
+              description="Escolha a unidade mais conveniente em Floriano ou Barão. Se preferir, use o formulário abaixo para adiantar seu agendamento no WhatsApp."
             />
 
-            <div className="grid gap-4">
+            {/* Cartões de Contato Rápido */}
+            <div className="grid gap-3.5">
               {contactMethods.map((method) => {
                 const Icon = iconMap[method.icon];
 
@@ -94,16 +95,16 @@ export default function Contact() {
                     href={method.href}
                     target={method.href.startsWith("http") ? "_blank" : undefined}
                     rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="glass-panel luxury-outline flex w-full items-center gap-4 rounded-[1.7rem] px-4 py-4 hover:-translate-y-1 sm:px-5"
+                    className="flex w-full items-center gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#ffb6c1]/18 text-[#0c6e70]">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
                       <Icon size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0c6e70]">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
                         {method.label}
                       </p>
-                      <p className="break-words text-base leading-7 text-[#4f4643]">
+                      <p className="text-sm sm:text-base font-medium text-[#25201f]">
                         {method.value}
                       </p>
                     </div>
@@ -116,75 +117,72 @@ export default function Contact() {
                 href={instagramLink}
                 target="_blank"
                 rel="noreferrer"
-                className="glass-panel luxury-outline flex w-full items-center gap-4 rounded-[1.7rem] px-4 py-4 text-[#4f4643] hover:-translate-y-1 sm:px-5"
+                className="flex w-full items-center gap-4 rounded-2xl border border-[#25201f]/[0.08] bg-white p-4 shadow-sm hover:border-[#0c6e70]/30 hover:shadow-md transition-all sm:px-5"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#ffb6c1]/18 text-[#0c6e70]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
                   <Camera size={20} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#0c6e70]">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
                     Instagram
                   </p>
-                  <p className="mt-1 break-words text-base leading-7">@chrispincelmagico</p>
+                  <p className="text-sm sm:text-base font-medium text-[#25201f]">@chrispincelmagico</p>
                 </div>
                 <ArrowUpRight className="ml-auto shrink-0 text-[#0c6e70]" size={18} />
               </a>
             </div>
 
+            {/* Formulário de Pré-Agendamento Humanizado */}
             <form
               onSubmit={handleSubmit}
-              className="glass-panel luxury-outline w-full rounded-[2rem] border border-white/65 bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(255,247,244,0.78))] p-5 shadow-[0_18px_35px_rgba(44,28,28,0.08)] sm:p-7"
+              className="w-full rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-6 sm:p-7 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
             >
-              <div className="mb-6 rounded-[1.4rem] border border-white/65 bg-white/70 px-4 py-4 sm:px-5">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0c6e70]/10 text-[#0c6e70]">
-                    <Send size={20} />
+              <div className="mb-6 rounded-2xl bg-[#faf7f2] p-4 border border-[#25201f]/[0.06]">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0c6e70]/10 text-[#0c6e70]">
+                    <Send size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0c6e70]">
-                      Formulário premium
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
+                      Agendamento Prático
                     </p>
-                    <p className="text-sm leading-6 text-[#6d615d]">
-                      Preencha os dados e finalize o contato pelo WhatsApp.
+                    <p className="text-sm text-[#5f5552]">
+                      Preencha os dados abaixo e envie direto no WhatsApp.
                     </p>
                   </div>
                 </div>
-                <p className="mt-3 text-xs leading-6 text-[#7a6f6b]">
-                  Leva menos de 1 minuto e já abre a conversa com os dados prontos.
-                </p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
-                  Nome
+                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
+                  Seu Nome
                   <input
+                    required
                     className={fieldClassName}
                     type="text"
                     name="name"
-                    placeholder="Seu nome"
+                    placeholder="Como prefere ser chamada?"
                     value={formData.name}
                     onChange={handleChange}
-                    autoComplete="name"
-                    required
                   />
                 </label>
 
-                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
-                  Telefone
+                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
+                  WhatsApp
                   <input
                     className={fieldClassName}
                     type="tel"
                     name="phone"
-                    placeholder="(00) 00000-0000"
+                    placeholder="(89) 99999-9999"
                     value={formData.phone}
                     onChange={handleChange}
-                    inputMode="numeric"
-                    autoComplete="tel"
                   />
                 </label>
+              </div>
 
-                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
-                  Unidade
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
+                  Unidade de Preferência
                   <select
                     className={fieldClassName}
                     name="unit"
@@ -199,8 +197,8 @@ export default function Contact() {
                   </select>
                 </label>
 
-                <label className="grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
-                  Serviço
+                <label className="grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
+                  Procedimento de Interesse
                   <select
                     className={fieldClassName}
                     name="service"
@@ -216,12 +214,12 @@ export default function Contact() {
                 </label>
               </div>
 
-              <label className="mt-4 grid gap-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-[#5e534f]">
-                Mensagem
+              <label className="mt-4 grid gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f5552]">
+                Observações ou Dúvidas
                 <textarea
-                  className={`${fieldClassName} min-h-[140px] resize-none leading-7`}
+                  className={`${fieldClassName} min-h-[110px] resize-none leading-relaxed`}
                   name="message"
-                  placeholder="Conte qual atendimento você deseja."
+                  placeholder="Alguma dúvida, data de preferência ou detalhe que queira compartilhar?"
                   value={formData.message}
                   onChange={handleChange}
                 />
@@ -229,34 +227,35 @@ export default function Contact() {
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <button type="submit" className="btn-primary w-full justify-center sm:w-auto">
-                  Enviar para o WhatsApp
+                  <span>Adiantar no WhatsApp</span>
                   <ArrowUpRight size={16} />
                 </button>
                 {feedback ? (
-                  <p className="rounded-[1rem] border border-[#0c6e70]/15 bg-[#0c6e70]/8 px-3 py-2 text-sm text-[#5b524e]">
+                  <p className="rounded-xl bg-[#0c6e70]/10 px-3 py-1.5 text-xs font-medium text-[#0c6e70]">
                     {feedback}
                   </p>
                 ) : (
-                  <p className="text-xs leading-6 text-[#7a6f6b]">
-                    Você será redirecionada para concluir no WhatsApp.
+                  <p className="text-xs text-[#8c817d]">
+                    Abrirá diretamente sua conversa no WhatsApp com a mensagem pronta.
                   </p>
                 )}
               </div>
             </form>
           </div>
 
-          <div className="grid auto-rows-max content-start gap-5 self-start">
+          {/* Cards dos Studios em Floriano e Barão */}
+          <div className="grid auto-rows-max content-start gap-6 self-start">
             {studioLocations.map((location) => (
               <article
                 key={location.id}
-                className="glass-panel luxury-outline w-full self-start overflow-hidden rounded-[2rem] p-4 sm:p-6"
+                className="w-full self-start overflow-hidden rounded-[2rem] border border-[#25201f]/[0.08] bg-white p-5 sm:p-6 shadow-[0_10px_30px_rgba(37,32,31,0.03)]"
               >
-                <div className="mb-5 flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mb-4 flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0c6e70]">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#0c6e70]">
                       {location.city}
-                    </p>
-                    <h3 className="mt-2 text-[2rem] font-display leading-none text-[#2d2625] sm:text-3xl">
+                    </span>
+                    <h3 className="mt-1 text-2xl font-display font-semibold text-[#25201f]">
                       {location.title}
                     </h3>
                   </div>
@@ -265,28 +264,24 @@ export default function Contact() {
                     href={location.mapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-secondary self-start sm:self-auto"
+                    className="inline-flex items-center gap-1.5 self-start text-xs font-semibold text-[#0c6e70] hover:text-[#074749] sm:self-auto"
                   >
-                    Abrir no mapa
-                    <ArrowUpRight size={16} />
+                    <span>Abrir no Google Maps</span>
+                    <ArrowUpRight size={15} />
                   </a>
                 </div>
 
-                <div className="mb-5 flex w-full items-start gap-3 rounded-[1.5rem] border border-white/60 bg-white/60 px-4 py-4">
-                  <MapPinned className="mt-1 shrink-0 text-[#0c6e70]" size={18} />
-                  <p className="text-sm leading-7 text-[#5c5350]">{location.address}</p>
+                <div className="mb-4 flex items-start gap-2.5 text-sm text-[#685e5a]">
+                  <MapPinned className="mt-0.5 shrink-0 text-[#0c6e70]" size={16} />
+                  <p>{location.address}</p>
                 </div>
 
-                <div className="w-full overflow-hidden rounded-[1.7rem] border border-white/55">
+                <div className="overflow-hidden rounded-2xl border border-[#25201f]/[0.08]">
                   <iframe
-                    src={location.mapEmbed}
                     title={`Mapa do ${location.title}`}
-                    width="100%"
-                    height="280"
-                    loading="lazy"
-                    allowFullScreen
+                    src={location.mapEmbed}
+                    className="h-56 w-full border-0 sm:h-64"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="h-[280px] w-full sm:h-[320px]"
                   />
                 </div>
               </article>
