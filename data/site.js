@@ -71,8 +71,8 @@ export const serviceCategories = [
       "Cuidados faciais com ativos veganos e epilação delicada.",
     items: [
       { name: "Limpeza de Pele Vegana", price: "R$ 100" },
-      { name: "Depilação de Buço", price: "R$ 25" },
-      { name: "Depilação de Axila", price: "R$ 35" },
+      { name: "Depilação de Buço", price: "R$ 15" },
+      { name: "Depilação de Axila", price: "R$ 20" },
     ],
   },
 ];
